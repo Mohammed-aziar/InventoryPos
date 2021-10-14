@@ -1,0 +1,4 @@
+MySql:
+	-creation de basse de donnée nom : 'pos_tbl'
+	-creation de tableau user
+		*tbl_user Column(userid int(25),username varchar(200),useremail varchar(200),password varchar(200),rol varchar(50))
