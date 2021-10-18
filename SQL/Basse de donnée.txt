@@ -1,4 +1,6 @@
 MySql:
 	-creation de basse de donnée nom : 'pos_tbl'
-	-creation de tableau user
+	-creation de tableau users
 		*tbl_user Column(userid int(25),username varchar(200),useremail varchar(200),password varchar(200),rol varchar(50))
+	-insert into table users
+		*INSERT INTO `users` (`userid`, `username`, `useremail`, `password`, `rol`) VALUES (NULL, 'mohammed aziar', 'mohammed.aziar@gmail.com', '12345', 'Admin'), (NULL, 'asmae aziar', 'asmae.aziar@gmail.com', '1234', 'User');

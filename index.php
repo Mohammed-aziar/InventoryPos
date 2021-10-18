@@ -1,3 +1,26 @@
+<?php
+  include_once "connectdb.php";
+  session_start();
+
+  if(isset($_POST['btn_login'])){
+    $userEmail    = $_POST['txt_email'];
+    $userPassword = $_POST['txt_password'];
+
+    $select = $pdo->prepare("select * from users where useremail='$userEmail' AND password='$userPassword'");
+    $select->execute();
+    $row  = $select->fetch(PDO::FETCH_ASSOC);
+    if($row['useremail']== $userEmail AND $row['password']== $userPassword ){
+      if($row['rol']== 'Admin'){
+        header('refresh:1;Dashboard.php');
+      }else if($row['rol']=='User'){
+        header('refresh:1;DashboardUser.php');
+      }
+      
+    }else{
+      echo "no hello";
+    }
+  }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,19 +53,19 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="dashboard.php"><b>INVENTORY</b>POS</a>
+    <a href="index.php"><b>INVENTORY</b>POS</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="index2.html" method="post">
+    <form action="#" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" class="form-control" placeholder="Email" name="txt_email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" placeholder="Password" name="txt_password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -50,15 +73,15 @@
       
 
         <div class="col-xs-8">
-
+        <a href="#">I forgot my password</a>
         </div>
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat" name="btn_login">Login</button>
         </div>
         <!-- /.col -->
       </div>
     </form>
-    <a href="#">I forgot my password</a><br>
+    
   </div>
   <!-- /.login-box-body -->
 </div>
