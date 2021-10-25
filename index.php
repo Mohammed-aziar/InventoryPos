@@ -22,6 +22,8 @@
       $_SESSION['userName']=$row['username'];
       $_SESSION['userEmail']=$row['useremail'];
       $_SESSION['rol']=$row['rol'];
+      $_SESSION['img']=$row['img'];
+      $_SESSION['status']=$row['status'];
 
       echo '<script>
               jQuery(function validation(){

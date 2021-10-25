@@ -9,11 +9,8 @@
 
     $name= $_SESSION['userName'];
   
-    $select = $pdo->prepare("select * from users where id=".$_SESSION['userId']);
-    $select->execute();
-    $row  = $select->fetch(PDO::FETCH_ASSOC);
-    $image = $row['img'];
-    $status = $row['status'];
+    $image = $_SESSION['img'];
+    $status = $_SESSION['status'];
 
   include_once 'header.php';
 ?>
