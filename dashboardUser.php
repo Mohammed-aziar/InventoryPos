@@ -1,4 +1,17 @@
 <?php 
+  include_once 'connectdb.php';
+  session_start();
+  if($_SESSION['userEmail']=="" )
+    header("location:index.php");
+  
+  if($_SESSION['rol']=='Admin')
+    header("location:dashboard.php");
+
+    $name= $_SESSION['userName'];
+    $select = $pdo->prepare("select * from users where id=".$_SESSION['userId']);
+    $select->execute();
+    $row  = $select->fetch(PDO::FETCH_ASSOC);
+    $image = $row['img'];
     include_once 'headerUser.php';
 ?>
 <!-- Content Wrapper. Contains page content -->

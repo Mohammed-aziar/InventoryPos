@@ -10,14 +10,19 @@
     $select->execute();
     $row  = $select->fetch(PDO::FETCH_ASSOC);
     if($row['useremail']== $userEmail AND $row['password']== $userPassword ){
+      $_SESSION['userId']=$row['id'];
+      $_SESSION['userName']=$row['username'];
+      $_SESSION['userEmail']=$row['useremail'];
+      $_SESSION['rol']=$row['rol'];
+
       if($row['rol']== 'Admin'){
-        header('refresh:1;Dashboard.php');
+        header('refresh:1;dashboard.php');
       }else if($row['rol']=='User'){
-        header('refresh:1;DashboardUser.php');
+        header('refresh:1;dashboardUser.php');
       }
       
     }else{
-      echo "no hello";
+      header('refresh:1;index.php');
     }
   }
 ?>
