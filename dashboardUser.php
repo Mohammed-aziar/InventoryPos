@@ -12,6 +12,7 @@
     $select->execute();
     $row  = $select->fetch(PDO::FETCH_ASSOC);
     $image = $row['img'];
+    $status = $row['status'];
     include_once 'headerUser.php';
 ?>
 <!-- Content Wrapper. Contains page content -->

@@ -8,11 +8,13 @@
     header("location:dashboardUser.php");
 
     $name= $_SESSION['userName'];
-
+  
     $select = $pdo->prepare("select * from users where id=".$_SESSION['userId']);
     $select->execute();
     $row  = $select->fetch(PDO::FETCH_ASSOC);
     $image = $row['img'];
+    $status = $row['status'];
+
   include_once 'header.php';
 ?>
 <!-- Content Wrapper. Contains page content -->

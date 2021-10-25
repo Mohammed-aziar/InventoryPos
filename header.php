@@ -92,7 +92,7 @@ desired effect
                 <img src="dist/img/<?php echo $image?>" class="img-circle" alt="User Image">
 
                 <p>
-                <?php echo $name?> - Web Developer
+                <?php echo $name." - ".$status ?> 
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -109,7 +109,7 @@ desired effect
                   <a href="#" class="btn btn-default btn-flat">Change password</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout.php" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
